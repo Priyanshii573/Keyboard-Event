@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+  body{
+    height: 100vh;
+    width: 170vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 10 rem;
+    background-color: black;
+  }
+
+  .keyPressed,.keyCode,.eventType,.charCode{
+    color: #f5ee62;
+   
+  }
+
+  .bbc{
+    margin-top: 90px;
+  }
+
+  #myInput{
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 18px;
+    padding-left: 5%;
+    background: lightgoldenrodyellow;
+  }
+
+  .output{
+    background-color: rgb(64, 63, 63);
+    width:260px;
+    margin-top: 70px;
+    border: 3px solid gray;
+    padding-left: 5px;
+    line-height: 1.9 ;
+    border-left: 4px solid white;
+  }
+</style>
+</head>
+<body>
+  <div class = "bbc"><input type="text" id="myInput" size="28" placeholder="Type Something...." />
+  <div class="output">
+    <p class="keyPressed">Key pressed: </p>
+    <p class="keyCode">Key Code :</p>
+    <p class="charCode">Char codeAt:</p>
+    <p class="eventType">Event Type:</p>
+  </div>
+</div>
+  <script>
+    const handleKeyPress = (event) =>{
+      console.log(event);
+      console.log("Key pressed:",event.key);
+      console.log("Key code:",event.code);
+      console.log("Event type:",event.type);
+
+      document.querySelector(
+        ".keyPressed"
+      ).textContent = `Key pressed: ${event.key}`;
+
+      document.querySelector(
+        ".keyCode"
+      ).textContent = `Key code: ${event.code}`;
+
+      document.querySelector(
+        ".charCode"
+      ).textContent = `Char code: ${event.key.charCodeAt(0)}`;
+
+      document.querySelector(
+        ".eventType"
+      ).textContent = `Key type: ${event.type}`;
+
+      
+    };
+    var myInput = document.getElementById("myInput");
+
+    myInput.addEventListener('keyup',handleKeyPress);
+  </script>
+</body>
+</html>
